@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include('./partials/head');%>
+<body class="text-center">
+    <% if (message !='' && name !='') { %>
+        <div class="alert alert-success" role="alert">
+            Hey <%=name %>!<%=message%> <a href="/login" class="alert-link">please click here to login</a>.
+          </div>
+        <% } %> 
+    <form class="form-signin" action="/register" method="POST">
+      <i class="fa fa-user fa-5x" aria-hidden="true"></i>
+
+        <h1 class="h3 mb-3 font-weight-normal">REGISTER</h1>
+        <input type="text" name="username" id="username" class="form-control" placeholder="user name" required="" autofocus="">
+        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" >
+        <input type="password" name="password" id="Password" class="form-control" placeholder="Password"  onchange='check_pass();' required="">
+        <div class="mr-1" style="margin-right: 170px;">
+
+          <input type="checkbox" id="eye" onclick="myFunction()">Show password
+        </div>
+
+        <input type="password" id="cPassword" class="form-control" placeholder="confirm Password" onchange='check_pass();' required="">
+        <div class="checkbox mb-3">
+        
+        <br>
+        <button id="register-submit" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+    </div>
+    <a href="/login">Click here to login</a>
+    <br>
+      </form>
+      <div class="footer">
+  
+        <%- include('./partials/footer.ejs'); %>
+      </div>
+<script>
+    function myFunction() {
+  var x = document.getElementById("Password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+function check_pass() {
+    if (document.getElementById('Password').value ==
+            document.getElementById('cPassword').value) {
+        document.getElementById('register-submit').disabled = false;
+    } else {
+        document.getElementById('register-submit').disabled = true;
+    }
+    
+}
+</script>
+</body>
+
+</html>

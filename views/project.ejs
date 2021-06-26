@@ -1,0 +1,36 @@
+
+  <!doctype html>
+  <html lang="en">
+<%-include('./partials/head1.ejs');%>
+  
+<div class="content-container">
+
+  <div class="container-fluid">
+
+    <!-- Main component for a primary marketing message or call to action -->
+  
+    <form action="/admin/project" method="post" enctype='multipart/form-data'>
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" name="title" placeholder="Title">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+      <textarea class="form-control" name="description" rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Image:</label>
+      <input name="img" class="form-control" type="file" id="formFile">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">project link</label>
+      <input name="link" class="form-control form-control-sm" type="text" placeholder="link">
+    </div>
+    <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+
+  </div>
+</div>
+      
+    </body>
+  </html>

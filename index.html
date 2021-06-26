@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            background: #3498db;
+        }
+
+        .center {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        textarea {
+            /* background: #ecf0f1; */
+            background-color: #444;
+            color: #ecf0f1;
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+            border-radius: 10px 10px 0 0;
+            border: 20px solid #34495e;
+        }
+
+        #btn {
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 5px solid #2980b9;
+            background: #ecf0f1;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="center">
+            <h1>Welcome to the TypeWriter</h1>
+            <h2 id="msg"></h2>
+            <p id="time"></p>
+            <textarea id="mywords" cols="100" rows="10" placeholder="Remember" disabled></textarea>
+            <br>
+            <button id="btn" class="mainbtn">start</button>
+        </div>
+    </div>
+    <script>
+        const sentence = [
+            'my name is vipul', 'Hi vipul here'
+        ]
+        const time=document.getElementById('time')
+        const btn = document.getElementById('btn')
+        const msg = document.getElementById('msg')
+        const typedWords = document.getElementById('mywords')
+        let startTime, stopTime;
+        const playGame=()=>{
+            let random=Math.floor(Math.random()*sentence.length)
+            console.log(random)
+            msg.innerText=sentence[random]
+            let date=new Date();
+            startTime=date.getTime();
+            btn.innerText = "Done";
+
+        }
+const endPlay=()=>{
+    let date=new Date();
+            stopTime=date.getTime();
+            let totalTime=((stopTime-startTime)/1000)
+            let totalStr=typedWords.value;
+            let wordCount=wordCounter(totalStr);
+            let speed=Math.round((wordCount/totalTime)*60 )
+            let finalmsg=`you typed total at ${speed} speed`
+            msg.innerText=finalmsg
+}
+const wordCounter=(str)=>{
+    return str.split(' ').length
+
+}
+let timeInSeconds=60;
+const Timer=()=>{
+    const stop=setInterval(()=>{
+        time.style.color="white";
+    time.innerText=timeInSeconds-=1;
+    if(timeInSeconds==50){
+        endPlay();
+        clearInterval(stop)
+    }
+},1000);
+}
+        btn.addEventListener('click', function () {
+            if (this.innerText == 'start') {
+                typedWords.disabled = false;    
+                playGame();
+                Timer();
+            }else if(this.innerText='Done'){
+                typedWords.disabled=true;
+                btn.innerText='start'
+                endPlay();
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

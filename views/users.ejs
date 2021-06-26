@@ -1,0 +1,57 @@
+
+  <!doctype html>
+  <html lang="en">
+<%-include('./partials/head1.ejs');%>
+  
+<div class="content-container">
+    
+  <div class="container-fluid">
+
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="main">
+     
+<!-- <a class="btn btn-success submit" href="/admin/project/"> <i class="fa fa-plus" aria-hidden="true"></i> Add New</a> -->
+<%if(data.length==0){%>
+  <div class="texr-center">
+    <h1 class="display-4 mx-auto">No user found</h1>
+    <hr class="w-25 mx-auto"/>
+  </div>
+
+<%}else{%>
+  <div class="texr-center">
+    <h1 class="display-4 mx-auto texr-center text-capitalize">Manage users</h1>
+    <hr class="w-25 mx-auto"/>
+  </div>
+      <table class="table">
+        <thead>
+            
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+          </tr>
+        </thead>  
+        <tbody>
+            <% for (var i of data) {%>
+          <tr>
+            <th scope="row"><%=i.username%></th>
+            <td><%=i.email%></td>
+            <td ><%=i.role%>
+            </td>
+            <td>
+                <a class="btn btn-success edit" href="../admin/user/<%-i._id%>">  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                <a class="btn btn-danger delete" onclick="return confirm('Are you sure?')" href="/admin/user/delete/<%-i._id%>"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                   Delete</a>
+            </td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+      <%}%>
+
+    </div>
+
+  </div>
+</div>
+
+    </body>
+  </html>   

@@ -1,0 +1,35 @@
+
+  <!doctype html>
+  <html lang="en">
+<%-include('./partials/head1.ejs');%>
+  
+        
+<div class="content-container">
+
+  <div class="container-fluid">
+
+      <%for(var i of result){%>
+      <form action="/admin/user/<%=i._id%>" method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" name="username" value="<%=i.username%>" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">email</label>
+            <input type="text" class="form-control" name="email" value="<%=i.email%>" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Role</label>
+            <!-- <input name="role" class="form-control form-control-sm" type="text" placeholder="link" value="<%=i.role%>"> -->
+            <select name="role" id="role">
+                <option value="manager">Manager</option>
+                <option value="user">User</option>
+            </select>
+          </div>
+          <input class="btn btn-primary" type="submit" value="update Role">
+        </form>
+    <%}%>
+  </div>
+</div>
+    </body>
+  </html>

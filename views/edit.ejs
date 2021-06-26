@@ -1,0 +1,35 @@
+
+  <!doctype html>
+  <html lang="en">
+<%-include('./partials/head1.ejs');%>
+  
+        
+<div class="content-container">
+
+  <div class="container-fluid">
+
+      <%for(var i of result){%>
+      <form action="/admin/project/<%=i.id%>" method="post" enctype='multipart/form-data'>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" name="title" value="<%=i.title%>">
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" name="description" rows="3" > <%=i.description%></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Image:</label>
+        <input name="img" class="form-control" type="file" id="formFile">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">project link</label>
+        <input name="link" class="form-control form-control-sm" type="text" placeholder="link" value="<%=i.link%>">
+      </div>
+      <input class="btn btn-primary" type="submit" value="update">
+    </form>
+    <%}%>
+  </div>
+</div>
+    </body>
+  </html>

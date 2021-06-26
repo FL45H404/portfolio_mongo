@@ -1,0 +1,44 @@
+
+  <!doctype html>
+  <html lang="en">
+<%-include('./partials/head1.ejs');%>
+  
+<div class="content-container">
+    
+  <div class="container-fluid">
+
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="main">
+     
+<a class="btn btn-success submit" href="/admin/project/"> <i class="fa fa-plus" aria-hidden="true"></i> Add New</a>
+      <table class="table">
+        <thead>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>  
+        <tbody>
+            <% for (var i of data) {%>
+          <tr>
+            <th scope="row"><%=i.id%></th>
+            <td><%=i.title%></td>
+            <td ><%=i.description%></td>
+            <td>
+                <a class="btn btn-success edit" href="../admin/project/<%-i.id%>">  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                <a class="btn btn-danger delete" onclick="return alert('Are you sure?')" href="/admin/project/delete/<%-i.id%>"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                   Delete</a>
+            </td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+</div>
+
+    </body>
+  </html>
