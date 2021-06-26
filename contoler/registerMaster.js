@@ -1,6 +1,6 @@
 
 const dotenv = require('dotenv');
-const db = require('../db')
+// const db = require('../db')
 const jwt = require('jsonwebtoken');
 // get config vars
 const bcrypt = require('bcrypt')

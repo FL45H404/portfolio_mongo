@@ -1,4 +1,4 @@
-const db = require('../db')
+// const db = require('../db')
 const Project = require('../model/project')
 // exports.addproject = async (req, res) => {
 //     try {

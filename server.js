@@ -2,7 +2,7 @@ require('dotenv').config()
 const express=require('express');
 const ejs=require('ejs');
 const path=require('path');
-const db=require('./db') 
+// const db=require('./db') 
 const app=express();
 const cors=require('cors')
 require('./conn/db')

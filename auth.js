@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 const jwt = require('jsonwebtoken');
-const db = require('./db');
+// const db = require('./db');
 const Register = require('./model/register');
 const Project = require('./model/project');
 
