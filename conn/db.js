@@ -1,5 +1,6 @@
+require('dotenv').config()
 const mongoose=require('mongoose')
-mongoose.connect('mongodb+srv://vipul:Vipul@1997@cluster0.zpemt.mongodb.net/portfolio?retryWrites=true&w=majority',{
+mongoose.connect(process.env.URL,{
     useCreateIndex:true,
     useFindAndModify:false,
     useNewUrlParser:true,
