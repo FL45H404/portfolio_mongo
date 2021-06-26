@@ -18,7 +18,7 @@ app.use(session({
     key:'uid',
     secret: 'keyboard cat',
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     cookie: {expires:60000000 }
   }))
 app.use(express.json());
